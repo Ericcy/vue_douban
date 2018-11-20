@@ -6,13 +6,13 @@
             <div class="bTitle">{{title}}</div>
             <div class="theaters">
               <ul class="clearfix">
-                <li v-for="item in items">
+                <li v-for="(item,index) in items" :key="index">
                   <a :href="getSrc(item.id)">
                     <img :src="item.images.large" alt=""/>
                     <div class="msg">
                       <div class="title">{{item.title}}</div>
-                      <div>导演：<span v-for="director in item.directors">{{director.name}}</span></div>
-                      <div class="cast">主演：<span v-for="(cast,i) in item.casts">{{i>=item.casts.length-1?cast.name:cast.name+"、"}}</span></div>
+                      <div>导演：<span v-for="(director,index) in item.directors" :key="index">{{director.name}}</span></div>
+                      <div class="cast">主演：<span v-for="(cast,i) in item.casts" :key="i">{{i>=item.casts.length-1?cast.name:cast.name+"、"}}</span></div>
                       <div>年份：{{item.year}}</div>
                       <div>评分：{{item.rating.average}}</div>
                     </div>
